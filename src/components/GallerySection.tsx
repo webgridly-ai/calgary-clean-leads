@@ -7,6 +7,8 @@ import galleryCoolerAreaBefore from "@/assets/gallery-cooler-area-before.jpg";
 import galleryBackroomBefore from "@/assets/gallery-backroom-before.jpg";
 import galleryServiceCounter from "@/assets/gallery-service-counter.jpg";
 import galleryCoolerDoors from "@/assets/gallery-cooler-doors.jpg";
+import galleryCoolerWide from "@/assets/gallery-cooler-wide.jpg";
+import galleryRetailFloor from "@/assets/gallery-retail-floor.jpg";
 
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },
@@ -20,6 +22,8 @@ const images = [
   { src: galleryCoolerDoors, alt: "Commercial cooler doors cleaned and ready for stocking" },
   { src: galleryConstructionSite, alt: "Retail interior during post-construction cleanup phase" },
   { src: galleryServiceCounter, alt: "Service counter area with protective coverings during renovation" },
+  { src: galleryCoolerWide, alt: "Wide view of commercial cooler section after cleaning" },
+  { src: galleryRetailFloor, alt: "Retail floor area during post-construction setup" },
   { src: galleryBeforeCooler, alt: "Cooler wall area before detailed cleaning" },
   { src: galleryCounterBefore, alt: "Front counter area during renovation with protective coverings" },
   { src: galleryCoolerAreaBefore, alt: "Cooler wall area with construction materials awaiting cleanup" },
