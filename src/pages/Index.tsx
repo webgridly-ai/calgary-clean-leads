@@ -4,8 +4,6 @@ import ServicesSection from "@/components/ServicesSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import WorkedWithSection from "@/components/WorkedWithSection";
 import GallerySection from "@/components/GallerySection";
-import ReviewsSection from "@/components/ReviewsSection";
-import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
@@ -16,8 +14,6 @@ const Index = () => (
     <WhyUsSection />
     <WorkedWithSection />
     <GallerySection />
-    <ReviewsSection />
-    <CTASection />
     <Footer />
   </>
 );
