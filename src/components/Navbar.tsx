@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16">
-        <a href="#" className="font-heading font-extrabold text-xl tracking-tight text-foreground">
+        <a href="#" className="flex items-center gap-2 font-heading font-extrabold text-xl tracking-tight text-foreground">
+          <img src={logo} alt="Reliable Clean Services logo" className="w-9 h-9 object-contain" />
           Reliable<span className="text-primary">Clean</span>
         </a>
 
