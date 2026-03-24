@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import galleryBeforeCooler from "@/assets/gallery-before-cooler.jpg";
 import galleryAfterCooler from "@/assets/gallery-after-cooler.jpg";
 import galleryConstructionSite from "@/assets/gallery-construction-site.jpg";
+import galleryCounterBefore from "@/assets/gallery-counter-before.jpg";
+import galleryCoolerAreaBefore from "@/assets/gallery-cooler-area-before.jpg";
+import galleryBackroomBefore from "@/assets/gallery-backroom-before.jpg";
 
 type BeforeAfterCardProps = {
   before: string;
@@ -133,6 +136,27 @@ const GallerySection = () => (
           alt="Active construction site interior before cleanup with equipment and debris"
           label="In Progress"
           caption="Retail space before post-construction cleanup"
+        />
+
+        <GalleryCard
+          src={galleryCounterBefore}
+          alt="Front counter area during construction with protective coverings and POS terminals"
+          label="In Progress"
+          caption="Front counter and service area during renovation"
+        />
+
+        <GalleryCard
+          src={galleryCoolerAreaBefore}
+          alt="Cooler wall area with construction debris and equipment on the floor"
+          label="In Progress"
+          caption="Cooler wall area before post-construction cleanup"
+        />
+
+        <GalleryCard
+          src={galleryBackroomBefore}
+          alt="Back counter area with construction dust and materials awaiting cleanup"
+          label="In Progress"
+          caption="Back prep area before detail cleaning"
         />
       </div>
 
