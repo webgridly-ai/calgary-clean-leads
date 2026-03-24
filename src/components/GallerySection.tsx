@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import galleryBeforeCooler from "@/assets/gallery-before-cooler.jpg";
 import galleryAfterCooler from "@/assets/gallery-after-cooler.jpg";
 import galleryConstructionSite from "@/assets/gallery-construction-site.jpg";
+import galleryCounterBefore from "@/assets/gallery-counter-before.jpg";
+import galleryCoolerAreaBefore from "@/assets/gallery-cooler-area-before.jpg";
+import galleryBackroomBefore from "@/assets/gallery-backroom-before.jpg";
 
 type BeforeAfterCardProps = {
   before: string;
