@@ -1,75 +1,128 @@
 import { motion } from "framer-motion";
-import { Home, HardHat, Building2, Sparkles } from "lucide-react";
+import { Home, HardHat, Building2, Sparkles, ArrowRight } from "lucide-react";
 import residentialImg from "@/assets/residential-cleaning.jpg";
 import constructionImg from "@/assets/construction-cleaning.jpg";
+import commercialImg from "@/assets/commercial-cleaning.jpg";
 
 const services = [
   {
     icon: Home,
     title: "Residential Cleaning",
-    description: "Cleaning services for homes — including regular upkeep, deep cleans, and move-in/move-out cleaning.",
+    description:
+      "Regular upkeep, deep cleans, and move-in/move-out cleaning for homes and rental properties.",
     image: residentialImg,
+    tags: ["Homes", "Rentals", "Move-in/out"],
   },
   {
     icon: HardHat,
     title: "Construction Cleaning",
-    description: "Post-construction cleanup for builders and contractors — debris removal, dust control, and final detailing.",
+    description:
+      "Post-construction cleanup including debris removal, dust control, and final detailing for builders and contractors.",
     image: constructionImg,
+    tags: ["Post-build", "Debris removal", "Final detail"],
+  },
+  {
+    icon: Building2,
+    title: "Commercial Cleaning",
+    description:
+      "Ongoing and one-time cleaning for offices, retail spaces, clinics, and commercial facilities.",
+    image: commercialImg,
+    tags: ["Offices", "Retail", "Facilities"],
   },
 ];
 
 const extras = [
-  { icon: Building2, title: "Property Management", desc: "Turnover cleaning between tenants to help keep units ready for new occupants." },
-  { icon: Sparkles, title: "Deep Cleaning", desc: "Thorough top-to-bottom cleaning for spaces that need extra attention." },
+  {
+    icon: Building2,
+    title: "Property Management",
+    desc: "Turnover cleaning between tenants to help keep units ready for new occupants.",
+  },
+  {
+    icon: Sparkles,
+    title: "Deep Cleaning",
+    desc: "Thorough top-to-bottom cleaning for spaces that need extra attention.",
+  },
 ];
 
 const ServicesSection = () => (
-  <section id="services" className="py-20 lg:py-28 bg-background">
-    <div className="container">
+  <section id="services" className="py-24 lg:py-32 bg-background relative">
+    {/* Subtle top divider */}
+    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+    <div className="container max-w-6xl">
       <motion.div
-        className="text-center max-w-2xl mx-auto mb-16"
+        className="text-center max-w-2xl mx-auto mb-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <span className="text-sm font-semibold text-primary uppercase tracking-widest">Our Services</span>
-        <h2 className="font-heading font-extrabold text-3xl sm:text-4xl mt-3 mb-4 text-foreground">
-          Cleaning for Homes & Construction Sites
+        <span className="text-xs font-semibold text-primary uppercase tracking-[0.2em]">
+          Our Services
+        </span>
+        <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-3 mb-5 text-foreground leading-tight">
+          Cleaning for Every Space
         </h2>
-        <p className="text-muted-foreground">We provide cleaning services for residential properties and construction sites across Calgary.</p>
+        <p className="text-muted-foreground text-sm sm:text-base max-w-lg mx-auto">
+          Residential, commercial, and post-construction cleaning services across
+          Calgary — tailored to each project.
+        </p>
       </motion.div>
 
-      {/* Main services */}
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      {/* Service cards — 3 column on desktop */}
+      <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
-            className="group rounded-2xl overflow-hidden bg-card shadow-card hover:shadow-elevated transition-shadow"
+            className="group rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all duration-500"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.15 }}
+            transition={{ delay: i * 0.12 }}
           >
-            <div className="h-56 overflow-hidden">
-              <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            {/* Image */}
+            <div className="aspect-[4/3] overflow-hidden">
+              <img
+                src={s.image}
+                alt={s.title}
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
             </div>
-            <div className="p-8">
-              <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4">
-                <s.icon className="w-6 h-6 text-primary" />
+
+            {/* Content */}
+            <div className="p-7">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <s.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-lg text-card-foreground">
+                  {s.title}
+                </h3>
               </div>
-              <h3 className="font-heading font-bold text-xl mb-2 text-card-foreground">{s.title}</h3>
-              <p className="text-muted-foreground">{s.description}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                {s.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {s.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs font-medium text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Extra services */}
-      <div className="grid sm:grid-cols-2 gap-6">
+      {/* Additional services */}
+      <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
         {extras.map((e, i) => (
           <motion.div
             key={e.title}
-            className="flex items-start gap-4 p-6 rounded-xl bg-secondary/50"
+            className="flex items-start gap-4 p-6 rounded-xl bg-section-alt border border-border/30"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -79,8 +132,12 @@ const ServicesSection = () => (
               <e.icon className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-heading font-bold text-card-foreground mb-1">{e.title}</h4>
-              <p className="text-sm text-muted-foreground">{e.desc}</p>
+              <h4 className="font-heading font-bold text-card-foreground mb-1">
+                {e.title}
+              </h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {e.desc}
+              </p>
             </div>
           </motion.div>
         ))}

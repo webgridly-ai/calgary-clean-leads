@@ -56,6 +56,7 @@ export default {
           foreground: "hsl(var(--hero-foreground))",
         },
         "section-alt": "hsl(var(--section-alt))",
+        "section-warm": "hsl(var(--section-warm))",
         highlight: {
           DEFAULT: "hsl(var(--highlight))",
           glow: "hsl(var(--highlight-glow))",

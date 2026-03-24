@@ -22,10 +22,11 @@ const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <img src={heroImg} alt="Clean interior space" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero/80" />
+        <div className="absolute inset-0 bg-hero/85" />
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-      <div className="relative container flex flex-col lg:flex-row items-center gap-12 py-20 lg:py-28">
+      <div className="relative container max-w-6xl flex flex-col lg:flex-row items-center gap-12 lg:gap-16 py-24 lg:py-32">
         {/* Left copy */}
         <motion.div
           className="flex-1 text-center lg:text-left"
@@ -33,15 +34,29 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary bg-primary/10 px-3.5 py-1.5 rounded-full mb-8">
             <MapPin className="w-3.5 h-3.5" /> Calgary, Alberta
           </span>
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight text-hero-foreground mb-6 text-balance">
-            Residential & Construction Cleaning in Calgary
+          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-hero-foreground mb-6 text-balance">
+            Residential, Commercial & Construction Cleaning
           </h1>
-          <p className="text-lg text-hero-foreground/70 max-w-lg mb-8">
-            Reliable Clean Services provides cleaning for homes and construction sites. We work with homeowners, builders, contractors, and property managers across Calgary.
+          <p className="text-lg text-hero-foreground/60 max-w-lg mb-8 leading-relaxed">
+            Reliable Clean Services provides cleaning for homes, offices, and construction sites. We work with homeowners, builders, contractors, and property managers across Calgary.
           </p>
+          <div className="hidden lg:flex items-center gap-6 text-sm text-hero-foreground/40">
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Residential
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Commercial
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Post-Construction
+            </span>
+          </div>
         </motion.div>
 
         {/* Right form */}
@@ -51,16 +66,16 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-elevated p-8 space-y-4">
+          <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-elevated p-8 space-y-4 border border-border/50">
             <div className="text-center mb-2">
               <h2 className="font-heading font-bold text-xl text-card-foreground">Request a Quote</h2>
-              <p className="text-sm text-muted-foreground">Tell us about your cleaning needs</p>
+              <p className="text-sm text-muted-foreground mt-1">Tell us about your cleaning needs</p>
             </div>
-            <Input placeholder="Full Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-            <Input type="email" placeholder="Email Address" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-            <Input type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+            <Input placeholder="Full Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-11" />
+            <Input type="email" placeholder="Email Address" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-11" />
+            <Input type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="h-11" />
             <Textarea placeholder="Tell us about your cleaning needs..." rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
-            <Button type="submit" className="w-full text-base py-5 font-semibold">
+            <Button type="submit" className="w-full text-base py-5 font-semibold rounded-xl">
               Submit Request
             </Button>
           </form>

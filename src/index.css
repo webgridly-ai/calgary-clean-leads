@@ -39,7 +39,8 @@
     /* Custom tokens */
     --hero-bg: 210 25% 10%;
     --hero-foreground: 0 0% 100%;
-    --section-alt: 168 20% 97%;
+    --section-alt: 168 15% 97%;
+    --section-warm: 30 20% 97%;
     --highlight: 168 72% 32%;
     --highlight-glow: 168 72% 42%;
     --gold: 38 92% 50%;
@@ -48,9 +49,9 @@
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 
-    --shadow-soft: 0 4px 20px -4px hsl(210 25% 12% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(210 25% 12% / 0.1);
-    --shadow-elevated: 0 20px 50px -12px hsl(168 72% 32% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(210 25% 12% / 0.06);
+    --shadow-card: 0 8px 30px -8px hsl(210 25% 12% / 0.08);
+    --shadow-elevated: 0 20px 50px -12px hsl(168 72% 32% / 0.12);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

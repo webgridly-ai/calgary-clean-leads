@@ -10,13 +10,12 @@ const Navbar = () => {
     { label: "Services", href: "#services" },
     { label: "Why Us", href: "#why-us" },
     { label: "Gallery", href: "#gallery" },
-    { label: "Reviews", href: "#reviews" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
-      <div className="container flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2 font-heading font-extrabold text-xl tracking-tight text-foreground">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-lg border-b border-border/50">
+      <div className="container max-w-6xl flex items-center justify-between h-16">
+        <a href="#" className="flex items-center gap-2.5 font-heading font-extrabold text-xl tracking-tight text-foreground">
           <img src={logo} alt="Reliable Clean Services logo" className="w-9 h-9 object-contain" />
           Reliable<span className="text-primary">Clean</span>
         </a>
@@ -28,7 +27,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <Button asChild size="sm" className="gap-2">
+          <Button asChild size="sm" className="gap-2 rounded-lg">
             <a href="#contact">
               <Phone className="w-4 h-4" />
               Get a Quote
@@ -44,7 +43,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-card border-b border-border px-6 pb-4 space-y-3">
+        <div className="md:hidden bg-card border-b border-border/50 px-6 pb-4 space-y-3">
           {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               {l.label}
