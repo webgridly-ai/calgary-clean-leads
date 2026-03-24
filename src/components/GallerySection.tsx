@@ -137,6 +137,27 @@ const GallerySection = () => (
           label="In Progress"
           caption="Retail space before post-construction cleanup"
         />
+
+        <GalleryCard
+          src={galleryCounterBefore}
+          alt="Front counter area during construction with protective coverings and POS terminals"
+          label="In Progress"
+          caption="Front counter and service area during renovation"
+        />
+
+        <GalleryCard
+          src={galleryCoolerAreaBefore}
+          alt="Cooler wall area with construction debris and equipment on the floor"
+          label="In Progress"
+          caption="Cooler wall area before post-construction cleanup"
+        />
+
+        <GalleryCard
+          src={galleryBackroomBefore}
+          alt="Back counter area with construction dust and materials awaiting cleanup"
+          label="In Progress"
+          caption="Back prep area before detail cleaning"
+        />
       </div>
 
       <motion.p
