@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import heroImg from "@/assets/hero-cleaning.jpg";
-import rcLogo from "@/assets/rc-logo.png";
+
 
 const HeroSection = () => {
   const { toast } = useToast();
