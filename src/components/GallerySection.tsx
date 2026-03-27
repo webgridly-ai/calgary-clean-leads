@@ -31,8 +31,13 @@ const images = [
 ];
 
 const GallerySection = () => (
-  <section id="gallery" className="py-24 lg:py-32 bg-background">
-    <div className="container max-w-6xl">
+  <section id="gallery" className="py-24 lg:py-32 relative overflow-hidden">
+    {/* Background depth */}
+    <div className="absolute inset-0 bg-gradient-to-b from-section-warm/50 via-background to-background" />
+    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+    <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-primary/[0.02] blur-3xl" />
+
+    <div className="relative container max-w-6xl">
       <motion.div className="text-center max-w-xl mx-auto mb-16" {...fade()}>
         <span className="text-xs font-semibold text-primary uppercase tracking-[0.2em]">
           Our Work
