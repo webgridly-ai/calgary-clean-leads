@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import heroImg from "@/assets/hero-cleaning.jpg";
+import rcLogo from "@/assets/rc-logo.png";
 
 const HeroSection = () => {
   const { toast } = useToast();
@@ -34,6 +35,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
+          {/* Logo */}
+          <img src={rcLogo} alt="ReliableClean logo" className="w-14 h-14 mb-6 mx-auto lg:mx-0" />
+
           <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary bg-primary/10 px-3.5 py-1.5 rounded-full mb-8">
             <MapPin className="w-3.5 h-3.5" /> Calgary, Alberta
           </span>
@@ -43,6 +47,18 @@ const HeroSection = () => {
           <p className="text-lg text-hero-foreground/60 max-w-lg mb-8 leading-relaxed">
             Reliable Clean Services provides cleaning for homes, offices, and construction sites. We work with homeowners, builders, contractors, and property managers across Calgary.
           </p>
+
+          {/* Phone number */}
+          <a
+            href="tel:5878897540"
+            className="inline-flex items-center gap-2.5 text-hero-foreground/80 hover:text-primary transition-colors mb-8"
+          >
+            <span className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center">
+              <Phone className="w-4 h-4 text-primary" />
+            </span>
+            <span className="font-heading font-semibold text-lg">(587) 889-7540</span>
+          </a>
+
           <div className="hidden lg:flex items-center gap-6 text-sm text-hero-foreground/40">
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
