@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import heroImg from "@/assets/hero-cleaning.jpg";
-import rcLogo from "@/assets/rc-logo.png";
+
 
 const HeroSection = () => {
   const { toast } = useToast();
@@ -35,8 +35,6 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          {/* Logo */}
-          <img src={rcLogo} alt="ReliableClean logo" className="w-14 h-14 mb-6 mx-auto lg:mx-0" />
 
           <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary bg-primary/10 px-3.5 py-1.5 rounded-full mb-8">
             <MapPin className="w-3.5 h-3.5" /> Calgary, Alberta
