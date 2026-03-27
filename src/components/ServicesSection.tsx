@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Home, HardHat, Building2, Sparkles, ArrowRight } from "lucide-react";
+import { Home, HardHat, Building2, Sparkles } from "lucide-react";
 import residentialImg from "@/assets/residential-cleaning.jpg";
 import constructionImg from "@/assets/construction-cleaning.jpg";
 import commercialImg from "@/assets/commercial-cleaning.jpg";
@@ -45,11 +45,15 @@ const extras = [
 ];
 
 const ServicesSection = () => (
-  <section id="services" className="py-24 lg:py-32 bg-background relative">
-    {/* Subtle top divider */}
-    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+  <section id="services" className="py-24 lg:py-32 relative overflow-hidden">
+    {/* Subtle background tint */}
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-section-alt/50 to-background" />
+    
+    {/* Accent shape */}
+    <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-primary/[0.03] blur-3xl" />
+    <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-accent/[0.03] blur-3xl" />
 
-    <div className="container max-w-6xl">
+    <div className="relative container max-w-6xl">
       <motion.div
         className="text-center max-w-2xl mx-auto mb-20"
         initial={{ opacity: 0, y: 20 }}
@@ -68,7 +72,7 @@ const ServicesSection = () => (
         </p>
       </motion.div>
 
-      {/* Service cards — 3 column on desktop */}
+      {/* Service cards */}
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
         {services.map((s, i) => (
           <motion.div
@@ -79,7 +83,6 @@ const ServicesSection = () => (
             viewport={{ once: true }}
             transition={{ delay: i * 0.12 }}
           >
-            {/* Image */}
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={s.image}
@@ -88,8 +91,6 @@ const ServicesSection = () => (
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-
-            {/* Content */}
             <div className="p-7">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -122,7 +123,7 @@ const ServicesSection = () => (
         {extras.map((e, i) => (
           <motion.div
             key={e.title}
-            className="flex items-start gap-4 p-6 rounded-xl bg-section-alt border border-border/30"
+            className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/30 shadow-soft"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

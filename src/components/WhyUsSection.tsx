@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, Eye, Home, HardHat, Building2, MapPin, MessageSquare } from "lucide-react";
+import { Clock, Eye, Home, HardHat, Building2, MapPin } from "lucide-react";
 
 const reasons = [
   { icon: Clock, title: "Reliable Service", desc: "We focus on showing up on time and completing every job as scheduled." },
@@ -11,10 +11,13 @@ const reasons = [
 ];
 
 const WhyUsSection = () => (
-  <section id="why-us" className="py-24 lg:py-32 bg-section-alt relative">
+  <section id="why-us" className="py-24 lg:py-32 relative overflow-hidden">
+    {/* Background depth */}
+    <div className="absolute inset-0 bg-section-alt" />
     <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+    <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-primary/[0.04] blur-3xl" />
 
-    <div className="container max-w-6xl">
+    <div className="relative container max-w-6xl">
       <motion.div
         className="text-center max-w-2xl mx-auto mb-16"
         initial={{ opacity: 0, y: 20 }}
