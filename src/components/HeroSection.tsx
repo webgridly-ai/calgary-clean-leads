@@ -11,11 +11,29 @@ import heroImg from "@/assets/hero-cleaning.jpg";
 const HeroSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Request sent!", description: "We'll get back to you as soon as possible." });
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setSubmitting(true);
+    try {
+      const formData = new FormData(e.target as HTMLFormElement);
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast({ title: "Request sent!", description: "We'll get back to you as soon as possible." });
+        setForm({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast({ title: "Something went wrong", description: "Please try again or call us directly.", variant: "destructive" });
+      }
+    } catch {
+      toast({ title: "Something went wrong", description: "Please try again or call us directly.", variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -81,16 +99,20 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-elevated p-8 space-y-4 border border-border/50">
+            <input type="hidden" name="access_key" value="4df93b03-e7ca-45d5-a305-2a0a01c2e9dd" />
+            <input type="hidden" name="subject" value="New Cleaning Quote Request" />
+            <input type="hidden" name="from_name" value="Reliable Clean Services" />
+            <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
             <div className="text-center mb-2">
               <h2 className="font-heading font-bold text-xl text-card-foreground">Request a Quote</h2>
               <p className="text-sm text-muted-foreground mt-1">Tell us about your cleaning needs</p>
             </div>
-            <Input placeholder="Full Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-11" />
-            <Input type="email" placeholder="Email Address" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-11" />
-            <Input type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="h-11" />
-            <Textarea placeholder="Tell us about your cleaning needs..." rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
-            <Button type="submit" className="w-full text-base py-5 font-semibold rounded-xl">
-              Submit Request
+            <Input name="name" placeholder="Full Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-11" />
+            <Input name="email" type="email" placeholder="Email Address" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-11" />
+            <Input name="phone" type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="h-11" />
+            <Textarea name="message" placeholder="Tell us about your cleaning needs..." rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+            <Button type="submit" disabled={submitting} className="w-full text-base py-5 font-semibold rounded-xl">
+              {submitting ? "Sending..." : "Submit Request"}
             </Button>
           </form>
         </motion.div>
