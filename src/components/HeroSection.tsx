@@ -99,16 +99,20 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-elevated p-8 space-y-4 border border-border/50">
+            <input type="hidden" name="access_key" value="4df93b03-e7ca-45d5-a305-2a0a01c2e9dd" />
+            <input type="hidden" name="subject" value="New Cleaning Quote Request" />
+            <input type="hidden" name="from_name" value="Reliable Clean Services" />
+            <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
             <div className="text-center mb-2">
               <h2 className="font-heading font-bold text-xl text-card-foreground">Request a Quote</h2>
               <p className="text-sm text-muted-foreground mt-1">Tell us about your cleaning needs</p>
             </div>
-            <Input placeholder="Full Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-11" />
-            <Input type="email" placeholder="Email Address" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-11" />
-            <Input type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="h-11" />
-            <Textarea placeholder="Tell us about your cleaning needs..." rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
-            <Button type="submit" className="w-full text-base py-5 font-semibold rounded-xl">
-              Submit Request
+            <Input name="name" placeholder="Full Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-11" />
+            <Input name="email" type="email" placeholder="Email Address" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-11" />
+            <Input name="phone" type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="h-11" />
+            <Textarea name="message" placeholder="Tell us about your cleaning needs..." rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+            <Button type="submit" disabled={submitting} className="w-full text-base py-5 font-semibold rounded-xl">
+              {submitting ? "Sending..." : "Submit Request"}
             </Button>
           </form>
         </motion.div>
